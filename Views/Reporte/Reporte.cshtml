@@ -1,0 +1,55 @@
+﻿@model ParcialPontVerges.ViewModel.Reportes.InfoGralVM
+@{
+    ViewBag.Title = "Reporte de Socios";
+}
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div>
+            <h4>Informe General</h4>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="col-sm-12">
+            <div>
+                <h4>Personas por deporte</h4>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+
+                    <th class="text-center">
+                        Deporte
+                    </th>
+                    <th class="text-center">
+                        Cantidad
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sexo in Model.listaDeportes)
+                {
+                    <tr class="text-center">
+
+                        <td>
+                            @sexo.nombre
+                        </td>
+                        <td>
+                            @sexo.cantidad
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

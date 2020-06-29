@@ -1,0 +1,69 @@
+﻿@model ParcialPontVerges.Models.Socio
+@{
+    ViewBag.Title = "Alta de nuevo socio";
+    List<SelectListItem> tipoDoc = (List<SelectListItem>)ViewBag.itemsDocs;
+    List<SelectListItem> deportes = (List<SelectListItem>)ViewBag.itemsDeportes;
+}
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div>
+            <h4>Alta de nuevo socio</h4>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm()) 
+
+{
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Nombre</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.nombre, htmlAttributes: new { @class = "form-control", @id = "txtNombre" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Apellido</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.apellido, htmlAttributes: new { @class = "form-control", @id = "txtApellido" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Tipo de Documento</label>
+                    <div class="col-sm-6">
+                        @Html.DropDownList("idTipoDoc", tipoDoc, "Seleccione el Documento", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Numero de Documento</label>
+                    <div class="col-sm-6">
+                        @Html.TextBoxFor(model => model.nroDoc, htmlAttributes: new { @class = "form-control", @id = "txtTelefono" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-6 control-label">Deporte</label>
+                    <div class="col-sm-6">
+                        @Html.DropDownList("idDeporte", deportes, "Seleccione el Deporte", htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group text-right">
+                    <div class="col-xs-12">
+                        <button class="btn btn btn-primary" type="submit">
+                            Guardar Persona
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}

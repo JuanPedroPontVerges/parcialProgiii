@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ParcialPontVerges.Models.Socio>
+@{
+    ViewBag.Title = "Listado de Socios";
+    string resultadoDoc = "";
+    string resultadoDepo = "";
+}
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div>
+            <h4>Listado de socios cargadas en la base de datos</h4>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+
+                    <th class="text-center">
+                        Nombre
+                    </th>
+                    <th class="text-center">
+                        Apellido
+                    </th>
+                    <th class="text-center">
+                        Tipo de Documento
+                    </th>
+                    <th class="text-center">
+                        Número de Documento
+                    </th>
+                    <th class="text-center">
+                        Deporte
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var socio in Model)
+                {
+                    <tr class="text-center">
+
+                        <td>
+                            @socio.nombre
+                        </td>
+                        <td>
+                            @socio.apellido
+                        </td>
+                        <td>
+                            @switch (@socio.idTipoDoc)
+                            {
+                                case 1:
+                                    resultadoDoc = "documento";
+                                    break;
+                                case 2:
+                                    resultadoDoc = "pasaporte";
+                                    break;
+                                default:
+                                    resultadoDepo = "Otro";
+                                    break;
+                            }
+                                @resultadoDoc
+                            </td>
+    
+                            <td>
+                                @socio.nroDoc
+                            </td>
+    
+                            <td>
+                                @switch (@socio.idDeporte)
+                                {
+                                    case 1:
+                                        resultadoDepo = "Tenis";
+                                        break;
+                                    case 2:
+                                        resultadoDepo = "Basquet";
+                                        break;
+                                    case 3:
+                                        resultadoDepo = "Futbol";
+                                        break;
+                                    case 4:
+                                        resultadoDepo = "Hockey";
+                                        break;
+                                    case 5:
+                                        resultadoDepo = "Karate";
+                                        break;
+                                    case 6:
+                                        resultadoDepo = "Tenis de Mesa";
+                                        break;
+                                    default:
+                                        resultadoDepo = "Otro";
+                                        break;
+                                }
+                                @resultadoDepo
+                            </td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
